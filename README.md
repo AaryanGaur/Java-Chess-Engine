@@ -1,6 +1,6 @@
 # Java Chess Game ♟️
 
-![King Piece](./resources/images/wk.png)
+![King Piece](/resources/images/wk.png)
 
 This is a full-featured chess game built using **Java** and **JavaFX**.
 
