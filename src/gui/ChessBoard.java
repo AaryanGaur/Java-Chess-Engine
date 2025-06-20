@@ -239,7 +239,7 @@ public class ChessBoard {
                 // ===== STALEMATE =====
                 boolean gameDraw = game.isKingInStalemate(game.getOpponent());
                 if (gameDraw) {
-                    System.out.println("Game over! It ends in a draw!");
+                    System.out.println("Game over! It ends in a draw!"); // debugging statement
                 }
 
                 // ===== EN PASSANT=====

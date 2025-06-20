@@ -361,7 +361,7 @@ public class Game {
 
     // function to create move
     public boolean makeMove(Position from, Position to, Color movingColor, boolean simulation) {
-        Board savedBoard = board.deepCopy(); // create a copy in case of various flags
+        Board savedBoard = board.deepCopy(); // create a copy in case something goes wrong
         // increment counter
         moveCounter++;
         if (!simulation){
