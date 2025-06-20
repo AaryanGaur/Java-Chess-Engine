@@ -248,7 +248,6 @@ public class ChessBoard {
                     enPassantTile = boardTiles[row][col]; // save it
                     System.out.println("Set an en passant target at: " + row + " " + col);
                 }
-                if (enPassantTile == null) System.out.println("The fuck");
                 if (game.getEnPassantMove() && enPassantTile != null) { // this is a legal en passant
                     ImageView enPassantCapture = (ImageView) enPassantTile.getChildren().get(1);
                     enPassantTile.getChildren().remove(enPassantCapture);
@@ -257,6 +256,7 @@ public class ChessBoard {
 
                 // ===== CASTLING MECHANICS =====
                 if (game.getCastlingMove()) {
+                    System.out.println("Showing castling move");
                     Position initial = game.getInitialCastlingRook();
                     Position dest = game.getDestinationCastlingRook();
 

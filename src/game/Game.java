@@ -361,10 +361,13 @@ public class Game {
 
     // function to create move
     public boolean makeMove(Position from, Position to, Color movingColor, boolean simulation) {
+        Board savedBoard = board.deepCopy(); // create a copy in case of various flags
         // increment counter
         moveCounter++;
-        enPassantMove = false; // reset at the beginning of every move
-        castlingMove = false; // reset at beginning
+        if (!simulation){
+            enPassantMove = false; // reset at the beginning of every move
+            castlingMove = false; // reset at beginning
+        }
 
         Piece movingPiece = board.getPieceAt(from); // get the moving piece
 
@@ -453,7 +456,6 @@ public class Game {
         }
 
         // ===== MOVE THE PIECE =====
-        Board savedBoard = board.deepCopy();
         board.movePiece(from, to);
 
         // check if the current king is in check after this move
@@ -506,10 +508,12 @@ public class Game {
             }
             // update flags
             if (movingPiece instanceof King) {
+                System.out.println("Some king has moved so updating flags!");
                 if (currentTurn == Color.WHITE) whiteKingMoved = true;
                 else blackKingMoved = true;
             }
             else if (movingPiece instanceof Rook) {
+                System.out.println("Some rook has moved. Updating flags");
                 if (from.getYPos() == 0) {
                     if (currentTurn == Color.WHITE) whiteQueensideRookMoved = true;
                     else blackQueensideRookMoved = true;
